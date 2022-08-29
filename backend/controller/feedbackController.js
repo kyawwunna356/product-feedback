@@ -14,7 +14,8 @@ const getSingleFeedback = aysncHandler(async (req,res) => {
 
 //add a feedback
 const addFeedback = aysncHandler(async (req,res) => {
-    res.json({msg: 'add feedback'})
+   const {title,category,detail} = req.body
+   
 })
 
 
