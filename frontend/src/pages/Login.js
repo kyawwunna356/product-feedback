@@ -43,7 +43,7 @@ function Login() {
   }
   return (
     <div className=" flex justify-center items-center h-screen px-5 ">
-      <div className="shadow-2xl bg-slate-100">
+      <div className="shadow-2xl md:w-6/12 lg:w-4/12 bg-slate-100">
         <div className="flex items-center w-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-10 rounded-t-lg">
           <i className="text-3xl text-white font-bold mr-4">
             <RiUser6Fill />
@@ -69,7 +69,7 @@ function Login() {
             type="text"
             id="email"
             className="
-                block outline-none text-lg font-bold text-slate-700
+                block outline-none w-full text-lg font-bold text-slate-700
                 bg-slate-200 rounded-lg p-2 mt-4
                 "
           />
@@ -85,7 +85,7 @@ function Login() {
             type="password"
             id="password"
             className="
-                block outline-none text-lg font-bold text-slate-700
+                block outline-none w-full text-lg font-bold text-slate-700
                  bg-slate-200  rounded-lg p-2 mt-4
                 "
 

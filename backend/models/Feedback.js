@@ -13,6 +13,10 @@ const feedbackSchema = mongoose.Schema({
         type: String,
         required: [true, "Please enter a detail"]
     },
+    userId: {
+        type: String,
+        required: true
+    }
 })
 
 const FeedbackModel = mongoose.model('Feedback',feedbackSchema)

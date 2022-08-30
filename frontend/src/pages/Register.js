@@ -45,7 +45,7 @@ function Signup() {
 
     return (
       <div className=" flex justify-center items-center mx-auto h-screen px-5">
-        <div className=" shadow-2xl bg-slate-100 md:w-7/12 lg:w-3/12">
+        <div className=" shadow-2xl md:w-7/12 lg:w-4/12 bg-slate-100 ">
           <div className="flex items-center w-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-10 rounded-t-lg">
             <i className="text-3xl text-white font-bold mr-4">
               <RiUser6Fill />
