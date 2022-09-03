@@ -5,13 +5,14 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux'
 import CustomButton from "../components/CustomButton";
-import { login, reset } from "../features/auth/authSlice";
+import { authReset, login } from "../features/auth/authSlice";
 import { AiFillExclamationCircle } from "react-icons/ai";
 import Loading from "../components/Loading";
 
 
 
 function Login() {
+  console.log('runned')
   const {user,isError,isLoading,isSuccess,error} = useSelector(store => store.auth)
   const { register, handleSubmit, } = useForm();
   const dispatch = useDispatch()
@@ -25,16 +26,24 @@ function Login() {
   }
 
   useEffect(() => {
-    dispatch(reset())
-    
+    dispatch(authReset())
+  },[dispatch])
 
+  useEffect(() => {
+  
     if(isError) {
       setErrorMessage(error)
+    }
+    if(!isError) {
+      setErrorMessage('')
     }
     if(isSuccess){
       navigate('/')
     }
   }, [isError,isSuccess,error,user,navigate,dispatch])
+
+
+  
 
   if(isLoading) {
     return (

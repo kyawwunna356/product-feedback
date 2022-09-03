@@ -5,7 +5,7 @@ import { RiUser6Fill } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
 import CustomButton from '../components/CustomButton';
-import { registerUser, reset, } from '../features/auth/authSlice';
+import { authReset, registerUser, } from '../features/auth/authSlice';
 import { AiFillExclamationCircle } from "react-icons/ai";
 import Loading from '../components/Loading';
 
@@ -15,7 +15,7 @@ function Signup() {
   const {user,isError,isLoading,isSuccess,error} = useSelector(store => store.auth)
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const [errorMessage, setErrorMessage] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
 
   async function onSubmit(data) {
     
@@ -24,11 +24,20 @@ function Signup() {
 
   }
 
+    useEffect(() => {
+      dispatch(authReset())
+      
+    },[dispatch])
+
   useEffect(() => {
-    dispatch(reset())
+    // dispatch(authReset())
     
     if(isError) {
       setErrorMessage(error)
+    }
+
+    if(!isError) {
+      setErrorMessage('')
     }
 
     if(isSuccess){
@@ -36,6 +45,8 @@ function Signup() {
     }
   }, 
   [isError,isSuccess,error,user,navigate,dispatch])
+
+  
 
   if(isLoading) {
     return (

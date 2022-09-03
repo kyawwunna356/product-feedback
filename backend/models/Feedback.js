@@ -1,5 +1,12 @@
 const { default: mongoose } = require("mongoose");
 
+const replySchema = mongoose.Schema({
+    content: {
+        type: String,
+        required: true
+    }
+})
+
 const feedbackSchema = mongoose.Schema({
     title: {
         type: String,
@@ -13,12 +20,18 @@ const feedbackSchema = mongoose.Schema({
         type: String,
         required: [true, "Please enter a detail"]
     },
+    upvotes: {
+        type: Number,
+        default: 0
+    },
+    comments: {
+        type: [replySchema],
+    },
     userId: {
         type: String,
         required: true
     }
 })
 
-const FeedbackModel = mongoose.model('Feedback',feedbackSchema)
+module.exports =  mongoose.model('Feedback',feedbackSchema)
 
-module.exports = FeedbackModel

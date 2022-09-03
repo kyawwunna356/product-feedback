@@ -5,6 +5,8 @@ const authRoutes = require('./routes/authRoutes')
 const {  mongoose } = require('mongoose')
 const connect = require('./connectDb')
 const errorHandler = require('./middleware/errorHandler')
+const categoryRoutes = require('./routes/categoryRoutes')
+
 const cors = require("cors");
 
 //-----------------------------------------------------------------------------
@@ -36,9 +38,11 @@ app.use(express.urlencoded({extended: false}))
 app.use(cors(corsOptions));
 
 
+
 //routes
 app.use('/api/feedbacks',feedbackRoutes)
 app.use('/api/users',authRoutes)
+app.use('/api/categories',categoryRoutes)
 
 
 //error handling middleware

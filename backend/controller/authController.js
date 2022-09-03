@@ -86,7 +86,7 @@ const login = aysncHandler(async (req,res) => {
 
     //create token and send back
     const token = createToken(user.id)
-    res.status(200).send({email: user.email, username: user.username,token})
+    res.status(200).send({_id:user.id,email: user.email, username: user.username,token})
     
 })
 
